@@ -1,10 +1,29 @@
 // import models.*;
-// import services.*;
+// import java.util.Scanner;  // Import the Scanner class
+import services.*;
+
 // import java.time.*;
 
 public class App {
     public static void main(String[] args) throws Exception 
     {
+        IService service = new ServiceTableau();
+        
+        System.out.println("##################Bienvenue cher utilisateur##################\n");
+        service.menu();
+    }
+
+       
+        
+
+        // IService service = new ServiceTableau();
+        // Pavillon pavillon = new Pavillon();
+        // pavillon.setId(1);
+        // pavillon.setNumPav(1);
+        // pavillon.setNbreDetages(4);
+        // service.addPavillon(pavillon);
+        // service.listerPavillon();
+
         // Responsable responsable = new Responsable();
         // Service service = new Service();
         
@@ -36,6 +55,6 @@ public class App {
         // service.listEtudiantsChambre(chambre);
         // service.listEtudiantsChambre(chambre2);
 
-    }
+    
 }
 

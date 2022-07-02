@@ -4,20 +4,21 @@ public class Chambre
 {
     // -------------------------------------------------------------ATTRIBUTES
     private int id;
+    private static int idS;
     private int numeroEtage;
     private String numero;
-    private String type;
-    Etudiant[] etudiants = new Etudiant[10];
-    public static int tailleTabEtu = 0;
-
-   
+    private Pavillon pav;
+    private TypeChambre type;   
+    
     // -------------------------------------------------------------CONSTRUCTEURS
-    public Chambre(){}
+    public Chambre(){
+        this.id = ++idS;
+        this.numero = "CH"+id;
+    }
     public Chambre( String numero, int numeroEtage, String type)
     {
         this.numeroEtage = numeroEtage;
         this.numero = numero;
-        this.type = type;
     }
 
     // -------------------------------------------------------------METHODS
@@ -25,26 +26,14 @@ public class Chambre
     public void setId(int id) { this.id = id; }
     public int getNumeroEtage() { return numeroEtage; }
     public void setNumeroEtage(int numeroEtage) { this.numeroEtage = numeroEtage; }
-    public String getType() { return type; }
-    public void setType(String type) { this.type = type; }
     public String getNumero() { return numero; }
     public void setNumero(String numero) { this.numero = numero; }
+    public Pavillon getPav() { return pav; }
+    public void setPav(Pavillon pav) { this.pav = pav; }
+    public TypeChambre getType() { return type; }
+    public void setType(TypeChambre type) { this.type = type; }
 
     public String toString(){
-        return numero + "\t" + numeroEtage + "\t" + type;
-    }
-
-    public static int getTailleTabEtu() {
-        return tailleTabEtu;
-    }
-    public static void setTailleTabEtu(int tailleTabEtu) {
-        Chambre.tailleTabEtu = tailleTabEtu;
-    }
-
-    public Etudiant[] getEtudiants() {
-        return etudiants;
-    }
-    public void setEtudiants(Etudiant[] etudiants) {
-        this.etudiants = etudiants;
+        return id + "\t" + numero + "\t" + numeroEtage + "\t" +  type + "\t" + pav.getNumero() ;
     }
 }

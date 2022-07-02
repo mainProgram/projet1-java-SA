@@ -4,18 +4,23 @@ import models.*;
 
 public interface IService {
 
-    public Etudiant[] addEtudiants(Etudiant etudiant, Responsable responsable);
-    public void listEtudiants(Responsable responsable);
+    public void addPavillon(Pavillon pavillon);
+    public void supprimerPavillon(Pavillon pavillon);
+    public void listerPavillon();
 
-    public Pavillon[] addPavillons(Pavillon pavillon, Responsable responsable);
-    public void listPavillons(Responsable responsable);
+    public void listerChambreDunPavillon(Pavillon pavillon);
+    public void addChambre(Chambre chambre);
+    public void listerChambre();
+    public void archiverChambre(Chambre chambre);
 
-    public Chambre[] affecterChambrePavillon(Pavillon pavillon, Chambre chambre);
-    public void listChambres(Pavillon pavillon);
+    public void addEtudiant(Etudiant etudiant);
 
+    public void listerEtudiantChambre(Chambre chambre);
 
-    public Etudiant[] affecterChambreEtudiant(Chambre chambre, Etudiant etudiant);
-    public void listEtudiantsChambre(Chambre chambre);
+    public void affecterChambrePavillon(Chambre chambre,Pavillon pavillon);
 
+    public void affecterChambreBoursierLoge(Chambre chambre, BoursierLoge boursierLoge);
+
+    public void menu();
 
 }

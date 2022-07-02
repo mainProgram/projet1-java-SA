@@ -8,12 +8,14 @@ public class Pavillon
     private int nbEtages;
     private String numero;
     private static int idS = 0;
-    private static int tailleTabChambres = 0;
-    Chambre[] chambres = new Chambre[10]; 
+    // private static int tailleTabChambres = 0;
+    // Chambre[] chambres = new Chambre[10]; 
 
    
     // -------------------------------------------------------------CONSTRUCTEURS
-    public Pavillon(){}
+    public Pavillon(){
+        this.id = ++idS;
+    }
     public Pavillon(String numero, int nbEtages){
         this.numero = numero;
         this.nbEtages = nbEtages;
@@ -31,12 +33,12 @@ public class Pavillon
     public String getNumero() { return numero; }
     public void setNumero(String numero) { this.numero = numero; }
 
-    public Chambre[] getChambres() { return chambres; }
-    public void setChambres(Chambre[] chambres) { this.chambres = chambres; }
+    // public Chambre[] getChambres() { return chambres; }
+    // public void setChambres(Chambre[] chambres) { this.chambres = chambres; }
 
-    public static int getTailleTabChambres() { return tailleTabChambres; }
-    public static void setTailleTabChambres(int tailleTabChambres) { Pavillon.tailleTabChambres = tailleTabChambres; }
+    // public static int getTailleTabChambres() { return tailleTabChambres; }
+    // public static void setTailleTabChambres(int tailleTabChambres) { Pavillon.tailleTabChambres = tailleTabChambres; }
 
-    public String toString(){ return numero + "\t" + nbEtages; }
+    public String toString(){ return id + "\t" + numero + "\t" + nbEtages; }
 
 }
