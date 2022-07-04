@@ -13,7 +13,7 @@ public class Chambre
     // -------------------------------------------------------------CONSTRUCTEURS
     public Chambre(){
         this.id = ++idS;
-        this.numero = "CH"+id;
+        this.numero = "CH" + String.format("%04d", id);
     }
     public Chambre( String numero, int numeroEtage, String type)
     {

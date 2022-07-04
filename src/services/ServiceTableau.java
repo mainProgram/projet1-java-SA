@@ -35,23 +35,34 @@ public class ServiceTableau implements IService
             System.out.println("\nEntrer le numéro du pavillon :");
             String numero = scanner.nextLine();
 
-            System.out.println("\nEntrer le nombre d'étages du pavillon :");
+            boolean found = false;
+            for(int i=0; i < indexPavillon; i++)
+                if(pavillons[i].getNumero().equals(numero))
+                    found = true;
 
-            int nbEtages = -1 ;
-            while(nbEtages < 0)
-                nbEtages = Integer.parseInt(scanner.nextLine());
-            
-            pavillon.setNumero(numero);
-            pavillon.setNbEtages(nbEtages);
-            this.addPavillon(pavillon);
+            if(found)
+                System.out.println("Le numéro de pavillon existe déja !");
+            else
+            {
+                System.out.println("\nEntrer le nombre d'étages du pavillon :");
+                int nbEtages = -1 ;
+                while(nbEtages < 0)
+                    nbEtages = Integer.parseInt(scanner.nextLine());
+                
+                pavillon.setNumero(numero);
+                pavillon.setNbEtages(nbEtages);
+                this.addPavillon(pavillon);
+            }
 
             menu();
         }     
+        
         else if(choix == 2)
         {
             this.listerPavillon();
             menu();
         }
+        
         else if(choix == 3)
         {
             if (indexPavillon == 0)
@@ -75,11 +86,11 @@ public class ServiceTableau implements IService
                 {
     
                     System.out.println("\nEntrer le numéro l'étage de la chambre :");
-                    int etage = 0;
-                    while (!(etage > 0 && etage <= pavillon.getNbEtages()))
+                    int etage = -1;
+                    while (!(etage >= 0 && etage <= pavillon.getNbEtages()))
                     {
                         etage = Integer.parseInt(scanner.nextLine());
-                        if(!(etage > 0 && etage <= pavillon.getNbEtages()))
+                        if(!(etage >= 0 && etage <= pavillon.getNbEtages()))
                             System.out.println("\nNuméro d'étage invalide !");
                     }
     
@@ -104,6 +115,7 @@ public class ServiceTableau implements IService
             menu();
 
         }
+        
         else if(choix == 4)
         {
             this.listerChambre();
